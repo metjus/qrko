@@ -4,8 +4,9 @@
 #
 # Potrebné nastavenia v repe (Settings -> Secrets and variables -> Actions):
 #   Secrets:   FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
-#   Variables: FTP_SERVER_DIR (voliteľné, predvolene ./web/ - koreň webu
-#              na Websupporte; adresa musí končiť lomkou)
+#   Variables: FTP_SERVER_DIR (voliteľné, predvolene ./qrko.net/web/ - koreň webu
+#              na Websupporte, FTP účet začína o úroveň vyššie;
+#              adresa musí končiť lomkou)
 #              FTP_PROTOCOL (voliteľné, predvolene ftps; ak server šifrované
 #              spojenie nepodporuje, nastav ftp)
 #
@@ -53,7 +54,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ${{ vars.FTP_PROTOCOL || 'ftps' }}
           local-dir: ./web/
-          server-dir: ${{ vars.FTP_SERVER_DIR || './web/' }}
+          server-dir: ${{ vars.FTP_SERVER_DIR || './qrko.net/web/' }}
           log-level: verbose
           exclude: |
             **/.git*
