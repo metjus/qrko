@@ -1,6 +1,6 @@
-# QR Code Generator
+# Qrko (qrko.net)
 
-> Free QR code generator for web links, text, Wi-Fi networks and business cards. Codes are created entirely in the visitor's browser — nothing is sent to a server.
+> Qrko is a free QR code generator for web links, text, Wi-Fi networks and business cards. Codes are created entirely in the visitor's browser — nothing is sent to a server.
 
 A static (not dynamic) QR code generator with no account and no expiry on the codes it creates.
 
@@ -20,7 +20,7 @@ A static (not dynamic) QR code generator with no account and no expiry on the co
 - [Static vs dynamic QR codes](https://qrko.net/guides/static-vs-dynamic-qr-codes): The difference, and which type to choose.
 - [EAN-13, UPC-A or CODE128 — which to choose](https://qrko.net/guides/ean-upc-code128-which-to-choose): Choosing a barcode type based on your use case.
 - [Barcode check digit explained](https://qrko.net/guides/barcode-check-digit-explained): What a check digit is and how it's calculated.
-- [How to get an official barcode (EAN)](https://qrko.net/guides/how-to-get-an-official-ean-barcode): Registering an EAN-13 for real retail use.
+- [How to get a barcode for your product](https://qrko.net/guides/how-to-get-an-official-ean-barcode): Getting a GS1-registered EAN-13 or UPC-A number, assigning it per product variant and creating the barcode image.
 
 ## Legal
 - [Privacy policy](https://qrko.net/privacy): What data the site processes and its legal basis.
