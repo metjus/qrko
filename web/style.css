@@ -613,3 +613,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .result-fields{grid-template-columns:1fr;gap:2px}
   .result-fields dd{margin-bottom:8px}
 }
+
+/* Logo v strede QR kódu */
+.studio-controls .logo-field{margin:0 0 24px}
+.label-opt{font-weight:500;color:var(--ink-faint)}
+.logo-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.logo-row input[type='file']{
+  flex:1 1 200px;min-width:0;font-family:inherit;font-size:13.5px;color:var(--ink-soft);
+  padding:8px;background:var(--paper);border:1px dashed var(--rule);border-radius:10px;cursor:pointer;
+}
+.logo-row input[type='file']::file-selector-button{
+  font-family:inherit;font-size:13px;font-weight:600;color:var(--ink);
+  background:var(--surface);border:1px solid var(--rule);border-radius:8px;
+  padding:7px 12px;margin-right:10px;cursor:pointer;
+}
+.logo-row input[type='file']:focus-visible{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-wash)}
