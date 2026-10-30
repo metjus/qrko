@@ -1,0 +1,165 @@
+# ── Vlastná 404 stránka ──────────────────────────────────────────────
+# Server aj naďalej vracia skutočný HTTP stavový kód 404 (dôležité pre
+# Google - nesmie si myslieť, že stránka existuje), len namiesto holej
+# štandardnej hlášky zobrazí túto stránku na mieru. Funguje to nezávisle
+# od toho, na akú nefunkčnú adresu niekto natrafí. Web je odteraz len
+# v angličtine, takže aj táto stránka je anglická.
+ErrorDocument 404 /404.html
+# Staré slovenské adresy vracajú 410 Gone (viď nižšie) a ukážu tú istú stránku.
+ErrorDocument 410 /404.html
+
+# ── Automatické dopĺňanie lomky za adresu ──────────────────────────────
+# Apache štandardne presmeruje /guides na /guides/, keď existuje
+# priečinok s tým menom. Tu to prekáža: /guides je rozcestník (súbor
+# guides.html), zatiaľ čo priečinok guides/ obsahuje jednotlivé návody.
+# Bez vypnutia by vznikla nekonečná slučka presmerovaní.
+<IfModule mod_dir.c>
+  DirectorySlash Off
+</IfModule>
+
+# ── Presmerovanie na HTTPS a zjednotenie adresy ─────────────────────────
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 1) Vynútiť HTTPS
+  #    Druhá podmienka pokrýva hostingy, kde SSL končí na proxy serveri
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://qrko.net%{REQUEST_URI} [L,R=301]
+
+  # 2) Zjednotiť www a bez www na jednu adresu (kvôli SEO)
+  RewriteCond %{HTTP_HOST} ^www\.qrko\.net$ [NC]
+  RewriteRule ^ https://qrko.net%{REQUEST_URI} [L,R=301]
+
+  # ── Adresy webu a zrušená slovenská verzia (október 2026) ──────────
+  # Web je len v angličtine a beží priamo v koreni: qrko.net, qrko.net/guides,
+  # qrko.net/privacy ... (bez /en). Staré adresy s /en sa trvalo (301)
+  # presmerujú na tie isté adresy bez /en. Slovenské adresy zanikli.
+  #
+  # Poistka: keď Apache po stavovom kóde 410 interne načíta chybovú stránku
+  # (ErrorDocument 410), pravidlá nižšie sa nesmú spustiť znova - inak by
+  # pravidlo pre ".html" zmenilo 410 na obyčajné presmerovanie.
+  RewriteCond %{ENV:REDIRECT_STATUS} ^410$
+  RewriteRule ^ - [L]
+
+  # a) Staré adresy /en/... -> adresy bez /en (jedným skokom, 301)
+  #    /en, /en/, /en/index.html  ->  /
+  RewriteRule ^en(/(index(\.html)?)?)?$ https://qrko.net/ [R=301,L]
+  #    /en/privacy, /en/privacy.html, /en/guides/ ...  ->  /privacy, /guides ...
+  RewriteRule ^en/(.+?)(\.html)?/?$ https://qrko.net/$1 [R=301,L]
+
+  # b) Staré slovenské adresy zámerne NEPRESMEROVÁVAME - vrátia 410 Gone
+  #    ("natrvalo zmazané"), čo Googlu povie, aby ich zo svojho indexu
+  #    vyradil rýchlejšie než pri obyčajnej 404.
+  #    (/cookies tu už nie je: je to teraz anglická stránka.)
+  RewriteRule ^(o-nas|kontakt|ochrana-sukromia|navody|ciarove-kody)(\.html)?/?$ - [G,L]
+  RewriteRule ^navody/ - [G,L]
+
+  # ── Adresy bez prípony .html ───────────────────────────────────────
+  # Súbory na serveri sa volajú napr. privacy.html, ale navonok sa
+  # zobrazuje čistá adresa qrko.net/privacy.
+  #
+  # Pravidlá 3-4 trvalo (301) presmerujú adresy s .html na čisté.
+  # Nemažte ich ani v budúcnosti: Google aj ľudia môžu mať staré odkazy
+  # uložené, a vďaka 301 sa ich hodnota vo vyhľadávaní prenesie na novú
+  # adresu namiesto toho, aby vznikol duplicitný obsah.
+  #
+  # Podmienka THE_REQUEST zabezpečuje, že sa presmeruje len to, čo
+  # návštevník naozaj napísal/klikol - nie interné prepisy z pravidla 6,
+  # inak by vznikla nekonečná slučka.
+
+  # 3) /index.html a /index -> /
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^ https://qrko.net/ [R=301,L]
+  RewriteRule ^index$ https://qrko.net/ [R=301,L]
+
+  # 4) /nieco.html -> /nieco   (napr. /privacy.html -> /privacy)
+  RewriteCond %{THE_REQUEST} \s/+([^?\s]+?)\.html[\s?] [NC]
+  RewriteRule ^ https://qrko.net/%1 [R=301,L,NE]
+
+  # 5) /guides/ s lomkou na konci -> /guides (bez lomky)
+  #    Rieši prípad, keď existuje súbor guides.html aj priečinok guides/
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+?)/$ https://qrko.net/$1 [R=301,L]
+
+  # 6) Interne: /privacy -> privacy.html, ak taký súbor existuje.
+  #    Zámerne tu NIE JE podmienka na neexistujúci priečinok: rozcestník
+  #    návodov je súbor guides.html a zároveň existuje priečinok guides/
+  #    s jednotlivými návodmi. Bez tohto by Apache uprednostnil priečinok
+  #    a adresa /guides by skončila chybou.
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
+# ── Ochrana interných súborov ──────────────────────────────────────────
+# Log formulára (odoslat-chyby.log) a dokumentácia (README.md a iné .md)
+# nesmú byť čitateľné z webu. README obsahuje interné poznámky vrátane
+# adresy diagnostiky formulára.
+<FilesMatch "\.(log|md)$">
+  Require all denied
+</FilesMatch>
+
+# ── Vyrovnávacia pamäť pre statické súbory (rýchlejšie načítanie) ───────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # CSS a JS: odkazy v HTML majú číslo verzie (napr. style.css?v=20261024),
+  # takže po každej zmene sa verzia zmení a prehliadač si stiahne novú.
+  # Týždeň je len poistka pre prípad, že by sa pri zmene zabudlo verziu
+  # zvýšiť - bez nej by sa oprava k návštevníkom dostala až po mesiaci.
+  # Uvedené sú oba názvy typu pre JS, lebo ho servery posielajú rôzne.
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType text/javascript "access plus 1 week"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 year"
+  # HTML nekešovať dlho, aby sa zmeny prejavili hneď
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# ── Komprimácia ────────────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json image/svg+xml
+</IfModule>
+
+# ── Bezpečnostné hlavičky ────────────────────────────────────────────────
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Núti prehliadač používať HTTPS pri KAŽDEJ ďalšej návšteve tejto domény,
+  # aj keby niekto napísal http:// alebo klikol na starý http odkaz.
+  # 1 rok (v sekundách); includeSubDomains pokrýva aj prípadné subdomény.
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # Zakazuje, aby niekto vložil tvoju stránku do <iframe> na cudzom webe
+  # (ochrana proti tzv. clickjackingu). SAMEORIGIN = tvoj vlastný web
+  # ju do rámca vložiť môže, cudzí nie.
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # --- Content-Security-Policy ------------------------------------------
+  # Toto je zámerne najprv v "Report-Only" režime: prehliadač NEBLOKUJE
+  # nič, len do konzoly (F12 → Console) nahlási, čo by policy zablokovala,
+  # keby bola ostrá. Slúži to na to, aby si mal pár dní istotu, že nič
+  # nerozbije Google Fonts, kontaktný formulár ani Cloudflare Analytics,
+  # skôr než sa prepne na ostrý režim.
+  #
+  # AŽ KEDY BUDEŠ MAŤ ISTOTU (žiadne CSP hlásenia v konzole na hlavných
+  # stránkach ani na kontaktnom formulári), premenuj nižšie
+  # "Content-Security-Policy-Report-Only" na "Content-Security-Policy"
+  # a policy sa začne skutočne vynucovať.
+  #
+  # POZOR 1: Politika už povoľuje domény siete Adsterra (Native Banner
+  # aj Social Bar). Reklamné siete ale bežne dotŕhajú obsah aj z ďalších,
+  # rotujúcich domén, ktoré sa nedajú vopred vymenovať — preto je img-src
+  # rozšírený na "https:" všeobecne a style-src má "unsafe-inline"
+  # (reklamy si štylujú prvky priamo v JS). Kvôli tomu NEODPORÚČAM túto
+  # politiku prepnúť z Report-Only na ostrú, kým je Adsterra aktívna —
+  # reálne by aj tak blokovala časť reklám a vy by ste to nevideli inak
+  # než cez sťažnosti na nefunkčné reklamy. Ak by si Adsterra vypol/-a
+  # a zostal len Google AdSense, politiku sa oplatí sprísniť naspäť.
+  #
+  # Hashes cover the inline structured-data blocks in this package.
+  # Refresh after editing JSON-LD; keep this policy in Report-Only mode.
+  Header always set Content-Security-Policy-Report-Only "default-src 'self'; script-src 'self' 'sha256-5HQ+uCxB70TZjcfzJVL6sHhWNB69EX4es22Z2K3GgPc=' 'sha256-DN3k/JfvavAhQTjWk39xVb7yNcJ8gl3PcUaB25piF6w=' 'sha256-KZKSSln2g5foYYCklDEOGyvB93FM2ux3pLhQOGy9zao=' 'sha256-MWxHR1Ig46Ld7RdvR1/0j85mf1KwYrxROM5Ov2mMbVs=' 'sha256-gPRo8ehQRwA6YiiWenjj9GcO5bKM1sJG93pCy65pJrY=' 'sha256-k04PcaosTCb4gmmdZWS71nCVycVt1kA9+SAmHHj69Wc=' 'sha256-u8Mvbsz3D5vkmnfaAmtIwoUz4N4BI5Wyzh5dHfTL8HI=' 'sha256-wWiTbMWasRdKS1k8kiWW9CeevwSsSmxhbn/5Bho4t/w=' https://static.cloudflareinsights.com https://pl31480710.profitableratecpmnetwork.com https://pl31480712.profitableratecpmnetwork.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://static.cloudflareinsights.com https://cloudflareinsights.com https://pl31480710.profitableratecpmnetwork.com https://pl31480712.profitableratecpmnetwork.com https://www.profitableratecpmnetwork.com; frame-src 'self' https://pl31480710.profitableratecpmnetwork.com https://pl31480712.profitableratecpmnetwork.com; form-action 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
+</IfModule>

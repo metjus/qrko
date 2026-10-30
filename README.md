@@ -1,5 +1,12 @@
 # qrko.net — kompletný balík (v2.1, len angličtina, priamo v koreni)
 
+## Repo a nasadenie
+Obsah webu je v priečinku `web/`. Po každom pushi do `main`, ktorý mení
+`web/`, ho GitHub Actions (`.github/workflows/deploy.yml`) nahrá cez FTP
+na Websupport. Nahrávajú sa len zmenené súbory a nič sa na serveri nemaže.
+Nastavenie (FTP secrets) je popísané v hlavičke workflowu.
+Súbor `.htaccess` patrí tiež do `web/`.
+
 Web je od októbra 2026 len v angličtine a beží priamo na koreni:
 qrko.net, qrko.net/guides, qrko.net/privacy ... (bez /en).
 
@@ -77,7 +84,7 @@ POZOR: skripty make_guides.py a guides1-3.py (mimo tohto balíka) píšu do
 starej štruktúry (en/..., navody/...) a generujú aj slovenské návody.
 Nespúšťaj ich v pôvodnej podobe, vytvorili by znova zmazané súbory.
 
-## Po nahratí
+## Po nahratí (ručné nasadenie bez GitHub Actions)
 1. Nahraj celý obsah priečinka web/ do koreňa webu. .htaccess je skrytý
    súbor - vo FTP klientovi zapni zobrazovanie skrytých súborov.
 2. Na serveri nesmú ostať staré súbory: priečinky en/ a navody/, slovenské
