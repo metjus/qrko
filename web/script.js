@@ -187,8 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const MARGIN = 1;
 
   // Logo prekryje stred kódu. S najvyššou korekciou chýb (H, až 30 %)
-  // kód stále funguje, ak logo zaberá najviac ~6 % plochy (strana 24 %).
-  const LOGO_SHARE = 0.24;
+  // kód stále funguje, ak logo zaberá najviac ~8 % plochy (strana 28 %).
+  const LOGO_SHARE = 0.28;
 
   function buildQr(text) {
     return QRCode.create(text, { errorCorrectionLevel: logo ? 'H' : 'M' });
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Logo sa vmestí do štvorca s okrajom, pomer strán ostane zachovaný
   function logoRect(box) {
-    const pad = 0.6;
+    const pad = 0.4;
     const side = box.k - pad * 2;
     const ratio = logo.width / logo.height;
     const w = ratio >= 1 ? side : side * ratio;
