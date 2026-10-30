@@ -6,6 +6,8 @@
 #   Secrets:   FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
 #   Variables: FTP_SERVER_DIR (voliteľné, predvolene ./web/ - koreň webu
 #              na Websupporte; adresa musí končiť lomkou)
+#              FTP_PROTOCOL (voliteľné, predvolene ftps; ak server šifrované
+#              spojenie nepodporuje, nastav ftp)
 #
 # Kým secrets nie sú vyplnené, workflow nasadenie len preskočí.
 # Nahrávajú sa iba zmenené súbory. Súbory, ktoré na serveri sú, ale v repe
@@ -49,9 +51,10 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
+          protocol: ${{ vars.FTP_PROTOCOL || 'ftps' }}
           local-dir: ./web/
           server-dir: ${{ vars.FTP_SERVER_DIR || './web/' }}
+          log-level: verbose
           exclude: |
             **/.git*
             **/.git*/**
