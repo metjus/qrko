@@ -5,7 +5,7 @@
 A static (not dynamic) QR code generator with no account and no expiry on the codes it creates.
 
 ## Tool
-- [QR code generator](https://qrko.net/): Create a QR code for a link, text, Wi-Fi network or business card and download it as a PNG.
+- [QR code generator](https://qrko.net/): Create a QR code for a link, text, Wi-Fi network or business card, optionally with your logo in the centre, and download it as a PNG or SVG.
 - [Barcode generator](https://qrko.net/barcodes): Create an EAN-13, UPC-A or CODE128 barcode and download it as a PNG.
 - [QR code reader](https://qrko.net/qr-reader): Read a QR code from a dropped, uploaded or pasted image. The image is processed in the browser and never uploaded.
 - [About](https://qrko.net/about): Why the tool exists, how it works and who operates it.
