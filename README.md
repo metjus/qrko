@@ -31,6 +31,11 @@ qrko.net, qrko.net/guides, qrko.net/privacy ... (bez /en).
 /llms.txt, /robots.txt, /ads.txt, /style.css, logo, favicony,
 /qrcode.min.js, /site.webmanifest
 
+## Cache JS a CSS
+Prehliadač si .js a .css pamätá týždeň (.htaccess). Po zmene script.js,
+style.css a pod. zvýš v HTML číslo v adrese, napr. script.js?v=20261030,
+inak ľudia (aj ty) uvidia starú verziu.
+
 ## Adresy a presmerovania
 Súbory na serveri sa volajú napr. privacy.html, ale navonok je čistá
 adresa qrko.net/privacy.
