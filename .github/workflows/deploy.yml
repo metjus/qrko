@@ -42,6 +42,15 @@ jobs:
             echo "ready=true" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Certifikát FTP servera
+        if: steps.check.outputs.ready == 'true'
+        continue-on-error: true
+        env:
+          S: ${{ secrets.FTP_SERVER }}
+        run: |
+          out=$(echo | timeout 20 openssl s_client -starttls ftp -connect "$S:21" 2>/dev/null | openssl x509 -noout -subject -ext subjectAltName 2>&1 | tr '\n' ' ')
+          echo "::notice title=CERT::$out"
+
       - uses: actions/checkout@v4
         if: steps.check.outputs.ready == 'true'
 
