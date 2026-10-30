@@ -11,10 +11,13 @@
   adresa je v hlavičke Reply-To.
 
   ── DIAGNOSTIKA ──────────────────────────────────────────────────────────
-  Ak správy nechodia, otvor v prehliadači:
-      https://qrko.net/odoslat.php?diag=<hodnota $DIAG_KLUC nižšie>
+  Repo je verejné, preto je diagnostika predvolene vypnutá ($DIAG_KLUC je
+  prázdny). Keď ju potrebuješ, na serveri (nie v repe) dočasne vpíš do
+  $DIAG_KLUC vlastný náhodný reťazec a otvor v prehliadači:
+      https://qrko.net/odoslat.php?diag=<ten reťazec>
   Vypíše, či hosting povoľuje odosielanie e-mailov, a pošle skúšobný
-  e-mail na $PRIJEMCA. Kľúč si môžeš zmeniť v $DIAG_KLUC.
+  e-mail na $PRIJEMCA. Potom kľúč na serveri znova vymaž (ďalší deploy
+  ho aj tak prepíše prázdnym).
 
   Chyby sa zapisujú do odoslat-chyby.log vedľa skriptu (bez osobných
   údajov — len čas a typ chyby). Súbor je cez .htaccess chránený pred
@@ -30,7 +33,7 @@
 
 $PRIJEMCA    = 'info@qrko.net';
 $ODOSIELATEL = 'info@qrko.net';
-$DIAG_KLUC   = '101c2e6ddc6e9131';
+$DIAG_KLUC   = ''; // prázdny = diagnostika vypnutá
 $LOG_SUBOR   = __DIR__ . '/odoslat-chyby.log';
 
 header('Content-Type: application/json; charset=utf-8');
@@ -87,7 +90,7 @@ function posli($prijemca, $predmet, $telo, $odosielatel, $reply_to = null) {
 
 // ── Diagnostika ─────────────────────────────────────────────────────────
 if (isset($_GET['diag'])) {
-    if (!hash_equals($DIAG_KLUC, (string)$_GET['diag'])) odpoved(404, ['ok' => false]);
+    if ($DIAG_KLUC === '' || !hash_equals($DIAG_KLUC, (string)$_GET['diag'])) odpoved(404, ['ok' => false]);
     header('Content-Type: text/plain; charset=utf-8');
     $zakazane = array_map('trim', explode(',', (string)ini_get('disable_functions')));
     $mail_povolene = function_exists('mail') && !in_array('mail', $zakazane, true);

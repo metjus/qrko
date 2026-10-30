@@ -99,8 +99,10 @@ Nespúšťaj ich v pôvodnej podobe, vytvorili by znova zmazané súbory.
 3. Over v prehliadači: qrko.net (anglická stránka), qrko.net/en/privacy
    (-> qrko.net/privacy), qrko.net/privacy.html (-> qrko.net/privacy),
    qrko.net/o-nas (chybová stránka), qrko.net/guides.
-4. Otvor qrko.net/odoslat.php?diag=qrko-diag a pošli skúšobnú správu cez
+4. Pošli skúšobnú správu cez
    formulár. Odosielateľ (info@qrko.net) musí existovať ako schránka.
+   Diagnostika formulára je predvolene vypnutá, postup je v hlavičke
+   odoslat.php.
 5. V Google Search Console aj Bing Webmaster Tools odošli sitemap znova:
    https://qrko.net/sitemap.xml
 6. Aktualizuj odkazy v reklamách a profiloch (napr. Facebook), ak ešte
