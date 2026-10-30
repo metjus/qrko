@@ -1,6 +1,6 @@
 {
-  "name": "QR Code Generator",
-  "short_name": "QR Generator",
+  "name": "Qrko — QR Code Generator",
+  "short_name": "Qrko",
   "description": "Free QR code generator for links, text, Wi-Fi and contacts.",
   "lang": "en",
   "start_url": "/",
