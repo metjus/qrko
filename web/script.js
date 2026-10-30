@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let lastSvg = null;
   let lastPayload = null;
   let logo = null;
+  let previewUrl = null;
   let activeType = 'url';
 
   function isValidUrl(value) {
@@ -183,7 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // vyrobiť PNG aj SVG z toho istého kódu a vložiť logo do stredu.
   // PNG má aspoň SIZE px a modul má vždy celý počet pixelov. Pri necelých
   // moduloch niektoré čítačky kód s určitou dĺžkou obsahu neprečítali.
-  const SIZE = 600;
+  // 1000 px, aby logo v PNG bolo ostré aj pri tlači.
+  const SIZE = 1000;
   const MARGIN = 1;
 
   // Logo prekryje stred kódu. S najvyššou korekciou chýb (H, až 30 %)
@@ -287,16 +289,18 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error(err);
       return null;
     }
-    const displayCanvas = document.createElement('canvas');
-    displayCanvas.setAttribute('aria-hidden', 'true');
-    displayCanvas.width = 184;
-    displayCanvas.height = 184;
-    const ctx = displayCanvas.getContext('2d');
-    ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, displayCanvas.width, displayCanvas.height);
-    ctx.imageSmoothingQuality = 'high';
-    ctx.drawImage(canvas, 0, 0, displayCanvas.width, displayCanvas.height);
+    // Náhľad je SVG, aby bol ostrý aj na displejoch s vysokým rozlíšením
+    // (zmenšené PNG rozmazávalo hlavne logo)
+    if (previewUrl) URL.revokeObjectURL(previewUrl);
+    previewUrl = URL.createObjectURL(new Blob([lastSvg], { type: 'image/svg+xml' }));
+    const preview = document.createElement('img');
+    preview.src = previewUrl;
+    preview.width = 184;
+    preview.height = 184;
+    preview.alt = '';
+    preview.setAttribute('aria-hidden', 'true');
 
-    qrContainer.appendChild(displayCanvas);
+    qrContainer.appendChild(preview);
     qrContainer.setAttribute('aria-label', label || t.made);
 
     lastDataUrl = canvas.toDataURL('image/png');
@@ -336,10 +340,10 @@ document.addEventListener('DOMContentLoaded', () => {
       let src = await readFile(file);
       let img = await loadImage(src);
       // SVG bez rozmerov má v niektorých prehliadačoch šírku 0
-      let width = img.naturalWidth || 512;
-      let height = img.naturalHeight || 512;
-      if (file.type !== 'image/svg+xml' && Math.max(width, height) > 512) {
-        const scale = 512 / Math.max(width, height);
+      let width = img.naturalWidth || 1024;
+      let height = img.naturalHeight || 1024;
+      if (file.type !== 'image/svg+xml' && Math.max(width, height) > 1024) {
+        const scale = 1024 / Math.max(width, height);
         const c = document.createElement('canvas');
         c.width = Math.round(width * scale);
         c.height = Math.round(height * scale);
