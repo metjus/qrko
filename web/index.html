@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0b0d12">
+  <title>Free QR Code Generator — No Sign-Up | QRKO</title>
+  <meta name="description" content="Create free QR codes for links, text, Wi-Fi and contact details. No sign-up required. Generate your code in your browser and download it as a PNG.">
+  <link rel="canonical" href="https://qrko.net/">
+  <meta name="robots" content="index,follow">
+
+  <meta property="og:title" content="Free QR Code Generator — No Sign-Up | QRKO">
+  <meta property="og:description" content="Create free QR codes for links, text, Wi-Fi and contact details. No sign-up required. Generate your code in your browser and download it as a PNG.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://qrko.net/">
+  <meta property="og:site_name" content="QR Code Generator">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="https://qrko.net/icon-512.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:description" content="Create free QR codes for links, text, Wi-Fi and contact details. No sign-up required. Generate your code in your browser and download it as a PNG.">
+  <meta name="twitter:image" content="https://qrko.net/icon-512.png">
+  <meta name="twitter:title" content="Free QR Code Generator — No Sign-Up | QRKO">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "QR Code Generator", "url": "https://qrko.net/", "description": "Create free QR codes for links, text, Wi-Fi and contact details. No sign-up required. Generate your code in your browser and download it as a PNG.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "inLanguage": "en", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "@id": "https://qrko.net/#application"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do you store my data or the contents of the QR code?", "acceptedAnswer": {"@type": "Answer", "text": "No. Everything is generated in your browser using JavaScript. The text, link or Wi-Fi password you enter is never sent to a server and is not stored anywhere."}}, {"@type": "Question", "name": "How do I scan the QR code I created?", "acceptedAnswer": {"@type": "Answer", "text": "Open the camera app on your phone and point it at the code. Most modern phones, both Android and iPhone, recognise it automatically without any extra app and show the link for confirmation."}}, {"@type": "Question", "name": "Is the generator free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, it is free and requires no account. You are welcome to use the codes you create commercially."}}, {"@type": "Question", "name": "Do these QR codes expire?", "acceptedAnswer": {"@type": "Answer", "text": "The generator does not set an expiry date on static QR codes. They remain usable while the code is readable and the encoded information is still valid. A web link must stay available; changed Wi-Fi or contact details require a new code."}}, {"@type": "Question", "name": "What quality is the downloaded code?", "acceptedAnswer": {"@type": "Answer", "text": "The code downloads as a 600 × 600 pixel PNG. That is enough for business cards, flyers and smaller posters. For large-format printing, leave clear white space around the code so scanners read it reliably."}}]}
+  </script>
+
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebSite", "@id": "https://qrko.net/#website", "name": "QR Code Generator", "alternateName": ["QRKO", "qrko.net"], "url": "https://qrko.net/", "inLanguage": "en"}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20261024">
+
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="masthead">
+    <div class="shell masthead-inner">
+      <a class="brand" href="/">
+        <img src="/logo.svg" width="36" height="36" alt="QR Code Generator logo" decoding="async">
+        <span>
+          <span class="brand-name">QR Code Generator</span>
+          <span class="brand-note">Links, Wi-Fi and business cards</span>
+        </span>
+      </a>
+      <div class="masthead-right">
+      <nav aria-label="Generator">
+        <a href="/" aria-current="page">Generator</a>
+        <a href="/guides">Guides</a>
+        <a href="/barcodes">Barcodes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      </div>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="hero shell">
+      <h1>Free QR Code Generator</h1>
+      <p class="hero-lead">Create a QR code for a link, text, Wi-Fi network or contact card. Choose a type, enter your details and download a PNG. This free QR code maker runs in your browser, with no sign-up required.</p>
+
+      <div class="studio">
+        <div class="studio-controls">
+          <div class="seg" role="tablist" aria-label="QR code type">
+            <button type="button" class="qr-tab" role="tab" id="tab-url" aria-controls="panel-url" aria-selected="true" tabindex="0" data-type="url">Link</button>
+            <button type="button" class="qr-tab" role="tab" id="tab-text" aria-controls="panel-text" aria-selected="false" tabindex="-1" data-type="text">Text</button>
+            <button type="button" class="qr-tab" role="tab" id="tab-wifi" aria-controls="panel-wifi" aria-selected="false" tabindex="-1" data-type="wifi">Wi-Fi</button>
+            <button type="button" class="qr-tab" role="tab" id="tab-vcard" aria-controls="panel-vcard" aria-selected="false" tabindex="-1" data-type="vcard">Business card</button>
+          </div>
+
+          <div class="qr-field active" data-type="url" role="tabpanel" id="panel-url" aria-labelledby="tab-url">
+            <div class="field">
+              <label for="url">Web address</label>
+              <input id="url" type="url" placeholder="google.com" autocomplete="url">
+              <p class="hint">Just type <strong>google.com</strong> — we'll add the rest.</p>
+            </div>
+          </div>
+
+          <div class="qr-field" data-type="text" role="tabpanel" id="panel-text" aria-labelledby="tab-text">
+            <div class="field">
+              <label for="text">Text</label>
+              <input id="text" type="text" placeholder="Opening hours: Mon–Fri 9:00–17:00">
+              <p class="hint">Good for notes, codes or short announcements.</p>
+            </div>
+          </div>
+
+          <div class="qr-field" data-type="wifi" role="tabpanel" id="panel-wifi" aria-labelledby="tab-wifi">
+            <div class="field">
+              <label for="wifi-ssid">Network name</label>
+              <input id="wifi-ssid" type="text" placeholder="Cafe_WiFi">
+            </div>
+            <div class="field">
+              <label for="wifi-pass">Password</label>
+              <input id="wifi-pass" type="text" placeholder="Network password">
+            </div>
+            <div class="field">
+              <label for="wifi-enc">Security</label>
+              <select id="wifi-enc">
+                <option value="WPA">WPA/WPA2</option>
+                <option value="WEP">WEP</option>
+                <option value="nopass">No password</option>
+              </select>
+              <p class="hint">Compatible phones can offer to join the network after scanning.</p>
+            </div>
+          </div>
+
+          <div class="qr-field" data-type="vcard" role="tabpanel" id="panel-vcard" aria-labelledby="tab-vcard">
+            <div class="field">
+              <label for="vcard-name">Full name</label>
+              <input id="vcard-name" type="text" placeholder="John Smith" autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="vcard-org">Company</label>
+              <input id="vcard-org" type="text" placeholder="Optional" autocomplete="organization">
+            </div>
+            <div class="field">
+              <label for="vcard-title">Job title</label>
+              <input id="vcard-title" type="text" placeholder="Optional" autocomplete="organization-title">
+            </div>
+            <div class="field">
+              <label for="vcard-phone">Phone</label>
+              <input id="vcard-phone" type="tel" placeholder="+44 7700 900000" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="vcard-email">Email</label>
+              <input id="vcard-email" type="email" placeholder="john@example.com" autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="vcard-web">Website</label>
+              <input id="vcard-web" type="text" placeholder="Optional" autocomplete="url">
+              <p class="hint">Scanning lets compatible phones save the contact. Only the name is required.</p>
+            </div>
+          </div>
+
+          <button id="generate" class="btn-generate" type="button">Generate QR code</button>
+        </div>
+
+        <div class="studio-stage" aria-live="polite">
+          <div id="qr" class="qr-box" role="img" aria-label="QR code preview">
+            <div id="qr-placeholder">Your code will appear here</div>
+          </div>
+          <div class="stage-actions">
+            <button id="download" class="btn" type="button">Download PNG</button>
+            <button id="open" class="btn" type="button">Open link</button>
+          </div>
+          <p id="hint" class="stage-note">The code is created on your device. Nothing is uploaded.</p>
+        </div>
+      </div>
+
+      <p class="cross-note">Need to read a QR code instead? <a href="/qr-reader">Open the QR code reader</a>, drop a picture and see what is inside.</p>
+
+      <div class="assurances">
+        <div class="assurance">
+          <h2>Free, including commercial use</h2>
+          <p>No sign-up, no watermark and no expiry date on your codes.</p>
+        </div>
+        <div class="assurance">
+          <h2>Your data stays with you</h2>
+          <p>Wi-Fi passwords and contact details never leave your browser.</p>
+        </div>
+        <div class="assurance">
+          <h2>Ready to print</h2>
+          <p>600 × 600 px PNG, big enough for business cards and posters.</p>
+        </div>
+      </div>
+
+      <noscript>
+        <p class="note">JavaScript is required to generate QR codes. Please enable it in your browser.</p>
+      </noscript>
+    </section>
+
+    <div class="shell">
+      <div class="ad-slot">
+        <span class="ad-slot-label">Advertisement</span>
+        <div id="container-6715372f44737f29c2c234fb8222a1b4"></div>
+      </div>
+    </div>
+
+    <section class="section shell" aria-labelledby="qr-uses-title">
+      <div class="section-head">
+        <h2 id="qr-uses-title">Create a QR code for a link, Wi-Fi or contact details</h2>
+        <p>Choose the type that matches what you want to share. Each option is available in the generator above.</p>
+      </div>
+      <div class="prose">
+        <h3>Link to QR code</h3>
+        <p>Turn a URL into a QR code for a website, booking page or online menu. Select <strong>Link</strong>, enter the web address and generate your code. Scan it before sharing to check that it opens the right page.</p>
+        <h3>Wi-Fi QR code generator</h3>
+        <p>Share a network without asking guests to type the password. Select <strong>Wi-Fi</strong> and enter the network name, password and security type. Anyone who can scan the code can access those details, so share it only with the intended guests.</p>
+        <p>For placement and setup tips, read our <a href="/guides/wifi-qr-code-for-cafes">guide to Wi-Fi QR codes for cafés and guest houses</a>.</p>
+        <h3>vCard QR code generator</h3>
+        <p>Put contact details on a business card or flyer. Select <strong>Business card</strong>, add a name and any phone, email, company or website details you want to share. A compatible phone can read the vCard and offer to save the contact.</p>
+        <p>See <a href="/guides/qr-code-for-business-cards">how to use a QR code on a business card</a>.</p>
+        <h3>Text to QR code</h3>
+        <p>Select <strong>Text</strong> to encode a note, reference number or short message. The text is stored in the code itself, so it does not need a destination website.</p>
+        <h3>Static QR codes with no service expiry</h3>
+        <p>This tool creates static QR codes: the encoded content cannot be changed after generation. The generator does not set an expiry date. A linked website still needs to remain available, and changed Wi-Fi or contact details require a new code.</p>
+        <p>Learn the <a href="/guides/static-vs-dynamic-qr-codes">difference between static and dynamic QR codes</a>, or check our <a href="/guides/qr-codes-for-print">QR code printing guide</a> before printing.</p>
+        <p>Need a product label instead? Use the <a href="/barcodes">free barcode generator</a>. To check an existing code, open the <a href="/qr-reader">online QR code reader</a>.</p>
+      </div>
+    </section>
+
+    <section class="section shell" aria-labelledby="faq-title">
+      <div class="section-head">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        <p>Short answers to the questions people ask most often.</p>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>Do you store my data or the contents of the QR code?</summary>
+          <p>No. Everything is generated in your browser using JavaScript. The text, link or Wi-Fi password you enter is never sent to a server and is not stored anywhere.</p>
+        </details>
+        <details>
+          <summary>How do I scan the QR code I created?</summary>
+          <p>Open the camera app on your phone and point it at the code. Most modern phones, both Android and iPhone, recognise it automatically without any extra app and show the link for confirmation.</p>
+        </details>
+        <details>
+          <summary>Is the generator free to use?</summary>
+          <p>Yes, it is free and requires no account. You are welcome to use the codes you create commercially.</p>
+        </details>
+        <details>
+          <summary>Do these QR codes expire?</summary>
+          <p>The generator does not set an expiry date on static QR codes. They remain usable while the code is readable and the encoded information is still valid. A web link must stay available; changed Wi-Fi or contact details require a new code.</p>
+        </details>
+        <details>
+          <summary>What quality is the downloaded code?</summary>
+          <p>The code downloads as a 600 × 600 pixel PNG. That is enough for business cards, flyers and smaller posters. For large-format printing, leave clear white space around the code so scanners read it reliably.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/">
+            <img src="/logo.svg" width="36" height="36" alt="" decoding="async">
+            <span class="brand-name">QR Code Generator</span>
+          </a>
+          <p>A simple, free tool for creating QR codes for links, text, Wi-Fi networks and business cards.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h2>Tool</h2>
+            <ul>
+              <li><a href="/">Generator</a></li>
+              <li><a href="/guides">Guides</a></li>
+              <li><a href="/barcodes">Barcodes</a></li>
+              <li><a href="/qr-reader">QR reader</a></li>
+              <li><a href="/#faq-title">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2>Project</h2>
+            <ul>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2>Legal</h2>
+            <ul>
+              <li><a href="/privacy">Privacy</a></li>
+              <li><a href="/cookies">Cookies</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span>© <span id="year">2026</span> QR Code Generator</span>
+        <span>Made in Slovakia</span>
+      </div>
+    </div>
+  </footer>
+  <script src="/qrcode.min.js" defer></script>
+  <script src="/script.js?v=20261024" defer></script>
+  <script src="/banner.js?v=20261024" defer></script>
+  <script src="/analytics.js?v=20261024" defer></script>
+</body>
+</html>

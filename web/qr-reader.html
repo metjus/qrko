@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0b0d12">
+  <title>QR Code Reader Online — Scan Codes from Images | QRKO</title>
+  <meta name="description" content="Read QR codes from images, photos and screenshots online. Upload or paste a picture to see its contents. Free QR code reader with no sign-up.">
+  <link rel="canonical" href="https://qrko.net/qr-reader">
+  <meta name="robots" content="index,follow">
+
+  <meta property="og:title" content="QR Code Reader Online — Scan Codes from Images | QRKO">
+  <meta property="og:description" content="Read QR codes from images, photos and screenshots online. Upload or paste a picture to see its contents. Free QR code reader with no sign-up.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://qrko.net/qr-reader">
+  <meta property="og:site_name" content="QR Code Generator">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="https://qrko.net/icon-512.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:description" content="Read QR codes from images, photos and screenshots online. Upload or paste a picture to see its contents. Free QR code reader with no sign-up.">
+  <meta name="twitter:image" content="https://qrko.net/icon-512.png">
+  <meta name="twitter:title" content="QR Code Reader Online — Scan Codes from Images | QRKO">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "WebApplication", "name": "QR Code Reader", "url": "https://qrko.net/qr-reader", "description": "Read QR codes from images, photos and screenshots online. Upload or paste a picture to see its contents. Free QR code reader with no sign-up.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Web", "inLanguage": "en", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "@id": "https://qrko.net/qr-reader#application"}
+  </script>
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is my image uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The picture is read by JavaScript running in your own browser. It is not sent to our server or to anyone else, and nothing is stored."}}, {"@type": "Question", "name": "Which image formats work?", "acceptedAnswer": {"@type": "Answer", "text": "PNG, JPG, WebP and GIF pictures work in modern browsers, as do screenshots and phone photos. Some formats, such as HEIC photos from an iPhone, are not supported by every browser. If your browser cannot open a picture, take a screenshot of it or save it as JPG or PNG."}}, {"@type": "Question", "name": "Why can't the reader find my QR code?", "acceptedAnswer": {"@type": "Answer", "text": "Crop the picture so the code fills most of it, and make sure the whole code is visible, including the white border around it. Blur, glare and shadows make codes hard to read, so a sharper and larger picture helps. For a code on a screen, a screenshot works better than a photo of the screen."}}, {"@type": "Question", "name": "Is it safe to open a link from a QR code?", "acceptedAnswer": {"@type": "Answer", "text": "Not always. A QR code hides the address, so criminals sometimes put harmful codes on stickers, posters or emails. That is why this reader shows you the address first and never opens it for you. Check the domain name carefully, be wary of shortened links and of links that ask for passwords or payments, and when in doubt type the website's address yourself."}}, {"@type": "Question", "name": "Can it read more than one QR code in a picture?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. If a picture contains several QR codes, for example on a flyer or a sheet of stickers, the reader shows each one separately, up to six per picture."}}, {"@type": "Question", "name": "Can it read barcodes such as EAN or UPC?", "acceptedAnswer": {"@type": "Answer", "text": "No, this reader handles QR codes only. If you need to create EAN-13, UPC-A or CODE128 barcodes, use the barcode generator ."}}, {"@type": "Question", "name": "Can I scan with my camera live?", "acceptedAnswer": {"@type": "Answer", "text": "Not live. This page reads pictures. On a phone, choose a file and pick the camera option to photograph a code, or simply point your phone's own camera app at it, which reads QR codes on most modern phones."}}]}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20261024">
+
+  <script src="/jsqr.min.js" defer></script>
+  <script src="/qr-reader.js?v=20261024" defer></script>
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="masthead">
+    <div class="shell masthead-inner">
+      <a class="brand" href="/">
+        <img src="/logo.svg" width="36" height="36" alt="QR Code Generator logo" decoding="async">
+        <span>
+          <span class="brand-name">QR Code Generator</span>
+          <span class="brand-note">Links, Wi-Fi and business cards</span>
+        </span>
+      </a>
+      <div class="masthead-right">
+      <nav aria-label="Generator">
+        <a href="/">Generator</a>
+        <a href="/guides">Guides</a>
+        <a href="/barcodes">Barcodes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      </div>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="hero shell">
+      <h1>QR Code Reader Online</h1>
+      <p class="hero-lead">Read a QR code from an image, photo or screenshot. Drop, choose or paste a picture to see its link, Wi-Fi details, contact card or text. This free online QR code reader processes the image in your browser.</p>
+
+      <div class="studio">
+        <div class="studio-controls">
+          <label class="dropzone" id="qr-drop" for="qr-file">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="6" y="9" width="36" height="30" rx="4"/>
+              <circle cx="17" cy="20" r="3.4"/>
+              <path d="M6 33l10-9 8 7 6-5 12 10"/>
+            </svg>
+            <span class="dropzone-title">Drag and drop an image here</span>
+            <span class="dropzone-sub">or click to choose a file, or paste with Ctrl+V</span>
+            <input class="visually-hidden" id="qr-file" type="file" accept="image/*">
+          </label>
+          <p class="hint">PNG, JPG, WebP, GIF and screenshots work. On a phone you can photograph a code on paper.</p>
+          <p class="field-error" id="qr-error" role="alert" hidden></p>
+        </div>
+
+        <div class="studio-stage" aria-live="polite">
+          <div class="qr-box reader-preview">
+            <img id="qr-preview" alt="Preview of the image you chose" hidden>
+            <p id="qr-preview-empty" class="reader-preview-empty">Your picture will appear here</p>
+          </div>
+          <p id="qr-status" class="stage-note">The image is read on your device. Nothing is uploaded.</p>
+        </div>
+      </div>
+
+      <div id="qr-results" class="results" aria-live="polite"></div>
+
+      <div class="assurances">
+        <div class="assurance">
+          <h2>Private by design</h2>
+          <p>Your picture never leaves your device and is not stored anywhere.</p>
+        </div>
+        <div class="assurance">
+          <h2>Nothing opens by itself</h2>
+          <p>Links are shown first, so you can check them before you click.</p>
+        </div>
+        <div class="assurance">
+          <h2>Works with real photos</h2>
+          <p>Screenshots, phone photos and pictures with several codes.</p>
+        </div>
+      </div>
+
+      <noscript>
+        <p class="note">JavaScript is required to read QR codes. Please enable it in your browser.</p>
+      </noscript>
+    </section>
+
+    <div class="shell">
+      <div class="ad-slot">
+        <span class="ad-slot-label">Advertisement</span>
+        <div id="container-6715372f44737f29c2c234fb8222a1b4"></div>
+      </div>
+    </div>
+
+    <section class="section shell" aria-labelledby="how-title">
+      <div class="section-head">
+        <h2 id="how-title">How to scan a QR code from an image or screenshot</h2>
+        <p>Use this online QR code scanner with a saved picture. It reads images rather than a live camera feed; on a phone, you can choose a camera photo as the input.</p>
+      </div>
+      <div class="prose">
+        <ol>
+          <li><strong>Add the picture.</strong> Drag it onto the box above, click the box to choose a file, or paste a screenshot with Ctrl+V (Cmd+V on a Mac). On a phone, pick the camera option to photograph a code on paper.</li>
+          <li><strong>Wait a moment.</strong> The reader looks for QR codes in your picture, trying several sizes and sections of it, and finds up to six codes.</li>
+          <li><strong>Check the result.</strong> You see what the code contains. Links are never opened automatically, and we point out anything suspicious about them, such as shortened or unencrypted addresses.</li>
+          <li><strong>Copy or open it.</strong> Copy the text, save a contact card, or open the link if you trust it.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section shell" aria-labelledby="contain-title">
+      <div class="section-head">
+        <h2 id="contain-title">What can a QR code contain?</h2>
+        <p>The reader recognises the most common kinds and shows each one in a readable way.</p>
+      </div>
+      <div class="prose">
+        <ul>
+          <li><strong>Web links</strong>, the most common kind, shown with the website name and safety hints.</li>
+          <li><strong>Wi-Fi networks</strong>: network name, security type and password.</li>
+          <li><strong>Contact cards</strong> (vCard) with name, phone, email and more, which you can save as a file.</li>
+          <li><strong>Email addresses, phone numbers and SMS messages.</strong></li>
+          <li><strong>Map locations</strong> given as coordinates.</li>
+          <li><strong>Plain text</strong> and data meant for other apps, such as payments.</li>
+        </ul>
+        <p>Want to make a code instead? Try the <a href="/">QR code generator</a>, and if a code of yours does not scan, see <a href="/guides/why-qr-codes-stop-working">why QR codes stop working</a>.</p>
+      </div>
+    </section>
+
+    <section class="section shell" aria-labelledby="faq-title-reader">
+      <div class="section-head">
+        <h2 id="faq-title-reader">Frequently asked questions</h2>
+        <p>Short answers to the questions people ask most often.</p>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>Is my image uploaded anywhere?</summary>
+          <p>No. The picture is read by JavaScript running in your own browser. It is not sent to our server or to anyone else, and nothing is stored.</p>
+        </details>
+        <details>
+          <summary>Which image formats work?</summary>
+          <p>PNG, JPG, WebP and GIF pictures work in modern browsers, as do screenshots and phone photos. Some formats, such as HEIC photos from an iPhone, are not supported by every browser. If your browser cannot open a picture, take a screenshot of it or save it as JPG or PNG.</p>
+        </details>
+        <details>
+          <summary>Why can't the reader find my QR code?</summary>
+          <p>Crop the picture so the code fills most of it, and make sure the whole code is visible, including the white border around it. Blur, glare and shadows make codes hard to read, so a sharper and larger picture helps. For a code on a screen, a screenshot works better than a photo of the screen.</p>
+        </details>
+        <details>
+          <summary>Is it safe to open a link from a QR code?</summary>
+          <p>Not always. A QR code hides the address, so criminals sometimes put harmful codes on stickers, posters or emails. That is why this reader shows you the address first and never opens it for you. Check the domain name carefully, be wary of shortened links and of links that ask for passwords or payments, and when in doubt type the website's address yourself.</p>
+        </details>
+        <details>
+          <summary>Can it read more than one QR code in a picture?</summary>
+          <p>Yes. If a picture contains several QR codes, for example on a flyer or a sheet of stickers, the reader shows each one separately, up to six per picture.</p>
+        </details>
+        <details>
+          <summary>Can it read barcodes such as EAN or UPC?</summary>
+          <p>No, this reader handles QR codes only. If you need to create EAN-13, UPC-A or CODE128 barcodes, use the <a href="/barcodes">barcode generator</a>.</p>
+        </details>
+        <details>
+          <summary>Can I scan with my camera live?</summary>
+          <p>Not live. This page reads pictures. On a phone, choose a file and pick the camera option to photograph a code, or simply point your phone's own camera app at it, which reads QR codes on most modern phones.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/">
+            <img src="/logo.svg" width="36" height="36" alt="" decoding="async">
+            <span class="brand-name">QR Code Generator</span>
+          </a>
+          <p>A simple, free tool for creating QR codes and barcodes for links, text, Wi-Fi networks and business cards.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h2>Tool</h2>
+            <ul>
+              <li><a href="/">Generator</a></li>
+              <li><a href="/guides">Guides</a></li>
+              <li><a href="/barcodes">Barcodes</a></li>
+              <li><a href="/qr-reader">QR reader</a></li>
+              <li><a href="/#faq-title">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2>Project</h2>
+            <ul>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2>Legal</h2>
+            <ul>
+              <li><a href="/privacy">Privacy</a></li>
+              <li><a href="/cookies">Cookies</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span>© <span id="year">2026</span> QR Code Generator</span>
+        <span>Made in Slovakia</span>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20261024" defer></script>
+  <script src="/banner.js?v=20261024" defer></script>
+  <script src="/analytics.js?v=20261024" defer></script>
+</body>
+</html>

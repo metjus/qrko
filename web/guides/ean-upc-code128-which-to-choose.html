@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0b0d12">
+  <title>EAN-13, UPC-A or CODE128 — Which Barcode Type to Choose</title>
+  <meta name="description" content="A practical guide to choosing the right barcode type depending on your use case — a retail product, the US market, a warehouse or internal tracking.">
+  <link rel="canonical" href="https://qrko.net/guides/ean-upc-code128-which-to-choose">
+  <meta name="robots" content="index,follow">
+
+  <meta property="og:title" content="EAN-13, UPC-A or CODE128 — Which Barcode Type to Choose">
+  <meta property="og:description" content="A practical guide to choosing the right barcode type depending on your use case — a retail product, the US market, a warehouse or internal tracking.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://qrko.net/guides/ean-upc-code128-which-to-choose">
+  <meta property="og:site_name" content="QR Code Generator">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="https://qrko.net/logo.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="EAN-13, UPC-A or CODE128 — Which Barcode Type to Choose">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20261024">
+
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="masthead">
+    <div class="shell masthead-inner">
+      <a class="brand" href="/">
+        <img src="/logo.svg" width="36" height="36" alt="QR Code Generator logo" decoding="async">
+        <span>
+          <span class="brand-name">QR Code Generator</span>
+          <span class="brand-note">Links, Wi-Fi and business cards</span>
+        </span>
+      </a>
+      <div class="masthead-right">
+      <nav aria-label="Generator">
+        <a href="/">Generator</a>
+        <a href="/guides" aria-current="page">Guides</a>
+        <a href="/barcodes">Barcodes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      </div>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="page shell">
+      <p class="guide-back"><a href="/guides">&larr; Back to guides</a></p>
+      <h1>EAN-13, UPC-A or CODE128 — which to choose</h1>
+      <p class="hero-lead guide-lead">The three most common formats solve three different situations. Here is how to decide based on where the code is actually going.</p>
+      <div class="prose">
+<p>Before you generate a barcode, it helps to know which type your situation actually calls for. Picking the wrong format isn't just cosmetic — it simply won't scan at a till or won't be accepted by a partner's system.</p>
+
+<h2>EAN-13 — the retail standard for Europe</h2>
+<p>This is the standard you see on every product in a Slovak or other European shop. It has exactly 13 digits, the last one being a check digit calculated from the others.</p>
+<p>Choose EAN-13 if:</p>
+<ul>
+<li>you sell a physical product in a shop or an online store that connects to standard retail systems,</li>
+<li>your buyer (a chain, a wholesaler) explicitly requires a barcode,</li>
+<li>you want to list the product on platforms like Google Shopping or price comparison sites, which often require EAN codes.</li>
+</ul>
+<p><strong>Important:</strong> for actual retail sale you need an <em>officially assigned</em> EAN-13, not just any 13-digit number that happens to pass the checksum. More in <a href="/guides/how-to-get-an-official-ean-barcode">How to get an official barcode for your product</a>.</p>
+
+<h2>UPC-A — the US counterpart to EAN-13</h2>
+<p>UPC-A is essentially the same thing as EAN-13, just with 12 digits instead of 13 (technically it's EAN-13 with a leading zero that UPC-A doesn't display). It's used mainly in the US and Canada.</p>
+<p>Choose UPC-A if:</p>
+<ul>
+<li>you sell into the US market, for example via Amazon.com or physically into a US chain,</li>
+<li>your US buyer specifically asks for this format instead of EAN-13.</li>
+</ul>
+<p>If you only sell in Europe, EAN-13 is the more appropriate choice — it's more common and more widely accepted here.</p>
+
+<h2>CODE128 — the general-purpose logistics code</h2>
+<p>CODE128 isn't tied to retail products at all. It handles letters, digits and punctuation (though not accented characters), which is exactly why it's used wherever you need to encode more than just a number.</p>
+<p>Choose CODE128 if:</p>
+<ul>
+<li>you're labelling internal tracking — a warehouse shelf, a shipment, an inventory number,</li>
+<li>you need to combine letters and digits, for example a product serial number,</li>
+<li>the code never passes through a regular shop till — it's for your own internal system or a partner's system that supports CODE128.</li>
+</ul>
+<p>Unlike EAN-13/UPC-A, CODE128 needs no registration anywhere — you can put whatever you need into it, since it doesn't serve as a global product identifier.</p>
+
+<h2>Quick reference</h2>
+<table>
+<thead><tr><th>Situation</th><th>Recommended type</th></tr></thead>
+<tbody>
+<tr><td>Product for a Slovak/European shop</td><td>EAN-13</td></tr>
+<tr><td>Product for the US market</td><td>UPC-A</td></tr>
+<tr><td>Warehouse or internal tracking</td><td>CODE128</td></tr>
+<tr><td>Serial number with letters and digits</td><td>CODE128</td></tr>
+<tr><td>A code that goes through a shop till</td><td>EAN-13 or UPC-A</td></tr>
+</tbody>
+</table>
+
+<p>You can create the code in the <a href="/barcodes">barcode generator</a> — just pick the type and enter the value.</p>
+      </div>
+
+      <div class="ad-slot">
+        <span class="ad-slot-label">Advertisement</span>
+        <div id="container-6715372f44737f29c2c234fb8222a1b4"></div>
+      </div>
+
+      <aside class="guide-more" aria-labelledby="more-typ-kodu">
+        <h2 id="more-typ-kodu">More guides</h2>
+        <ul>
+          <li><a href="/guides/wifi-qr-code-for-cafes">Wi-Fi QR code for a café or guest house</a></li>
+          <li><a href="/guides/qr-code-for-business-cards">QR code for business cards</a></li>
+          <li><a href="/guides/qr-codes-for-print">Preparing QR codes for print</a></li>
+          <li><a href="/guides/why-qr-codes-stop-working">Why a QR code is not working</a></li>
+          <li><a href="/guides/static-vs-dynamic-qr-codes">Static vs dynamic QR codes</a></li>
+          <li><a href="/guides/barcode-check-digit-explained">What a check digit is and how it works</a></li>
+          <li><a href="/guides/how-to-get-an-official-ean-barcode">How to get an official barcode for your product</a></li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/">
+            <img src="/logo.svg" width="36" height="36" alt="" decoding="async">
+            <span class="brand-name">QR Code Generator</span>
+          </a>
+          <p>A simple, free tool for creating QR codes for links, text, Wi-Fi networks and business cards.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h2>Tool</h2>
+            <ul>
+              <li><a href="/">Generator</a></li>
+              <li><a href="/guides">Guides</a></li>
+              <li><a href="/barcodes">Barcodes</a></li>
+              <li><a href="/qr-reader">QR reader</a></li>
+              <li><a href="/#faq-title">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2>Project</h2>
+            <ul>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2>Legal</h2>
+            <ul>
+              <li><a href="/privacy">Privacy</a></li>
+              <li><a href="/cookies">Cookies</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span>© <span id="year">2026</span> QR Code Generator</span>
+        <span>Made in Slovakia</span>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20261024" defer></script>
+  <script src="/banner.js?v=20261024" defer></script>
+  <script src="/analytics.js?v=20261024" defer></script>
+</body>
+</html>

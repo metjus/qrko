@@ -1,0 +1,27 @@
+# QR Code Generator
+
+> Free QR code generator for web links, text, Wi-Fi networks and business cards. Codes are created entirely in the visitor's browser — nothing is sent to a server.
+
+A static (not dynamic) QR code generator with no account and no expiry on the codes it creates.
+
+## Tool
+- [QR code generator](https://qrko.net/): Create a QR code for a link, text, Wi-Fi network or business card and download it as a PNG.
+- [Barcode generator](https://qrko.net/barcodes): Create an EAN-13, UPC-A or CODE128 barcode and download it as a PNG.
+- [QR code reader](https://qrko.net/qr-reader): Read a QR code from a dropped, uploaded or pasted image. The image is processed in the browser and never uploaded.
+- [About](https://qrko.net/about): Why the tool exists, how it works and who operates it.
+- [Contact](https://qrko.net/contact): Contact form and the operator's email address.
+
+## Guides
+- [Guides — index](https://qrko.net/guides): List of all practical QR code and barcode guides.
+- [Wi-Fi QR code for a café or guest house](https://qrko.net/guides/wifi-qr-code-for-cafes): How to create and place a Wi-Fi QR code in a venue.
+- [QR code for business cards](https://qrko.net/guides/qr-code-for-business-cards): What to include and what size stays readable.
+- [Preparing QR codes for print](https://qrko.net/guides/qr-codes-for-print): Resolution, quiet zone and minimum sizes for print.
+- [Why a QR code is not working](https://qrko.net/guides/why-qr-codes-stop-working): Common causes and how to fix them.
+- [Static vs dynamic QR codes](https://qrko.net/guides/static-vs-dynamic-qr-codes): The difference, and which type to choose.
+- [EAN-13, UPC-A or CODE128 — which to choose](https://qrko.net/guides/ean-upc-code128-which-to-choose): Choosing a barcode type based on your use case.
+- [Barcode check digit explained](https://qrko.net/guides/barcode-check-digit-explained): What a check digit is and how it's calculated.
+- [How to get an official barcode (EAN)](https://qrko.net/guides/how-to-get-an-official-ean-barcode): Registering an EAN-13 for real retail use.
+
+## Legal
+- [Privacy policy](https://qrko.net/privacy): What data the site processes and its legal basis.
+- [Cookies](https://qrko.net/cookies): Overview of cookies used and the advertising network.

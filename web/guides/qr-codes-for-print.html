@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0b0d12">
+  <title>Preparing QR Codes for Print — Resolution, Quiet Zone, Size</title>
+  <meta name="description" content="A practical guide to getting QR codes print-ready: what resolution is enough, what the quiet zone is, and the minimum size for posters, flyers and business cards.">
+  <link rel="canonical" href="https://qrko.net/guides/qr-codes-for-print">
+  <meta name="robots" content="index,follow">
+
+  <meta property="og:title" content="Preparing QR Codes for Print — Resolution, Quiet Zone, Size">
+  <meta property="og:description" content="A practical guide to getting QR codes print-ready: what resolution is enough, what the quiet zone is, and the minimum size for posters, flyers and business cards.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://qrko.net/guides/qr-codes-for-print">
+  <meta property="og:site_name" content="QR Code Generator">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="https://qrko.net/logo.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Preparing QR Codes for Print — Resolution, Quiet Zone, Size">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20261024">
+
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="masthead">
+    <div class="shell masthead-inner">
+      <a class="brand" href="/">
+        <img src="/logo.svg" width="36" height="36" alt="QR Code Generator logo" decoding="async">
+        <span>
+          <span class="brand-name">QR Code Generator</span>
+          <span class="brand-note">Links, Wi-Fi and business cards</span>
+        </span>
+      </a>
+      <div class="masthead-right">
+      <nav aria-label="Generator">
+        <a href="/">Generator</a>
+        <a href="/guides" aria-current="page">Guides</a>
+        <a href="/barcodes">Barcodes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      </div>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="page shell">
+      <p class="guide-back"><a href="/guides">&larr; Back to guides</a></p>
+      <h1>Preparing QR codes for print</h1>
+      <p class="hero-lead guide-lead">A code that scans perfectly on screen can fail once printed. These are the rules that stop that from happening.</p>
+      <div class="prose">
+<p>A QR code on a screen and the same code on paper are two different situations. A screen emits light and has perfect contrast; paper does not. Printing also brings ink spread, trimming tolerances and surfaces that reflect light. The rules below decide whether a printed code actually works.</p>
+
+<h2>The quiet zone — the most commonly broken rule</h2>
+<p>The quiet zone is the empty space around the code. It is not decoration — the scanner needs it to work out where the code begins and ends. Without it, the code may not scan at all.</p>
+<p>The standard recommends a quiet zone <strong>four modules</strong> wide, a module being one small square in the pattern. In practice that means clear space roughly as wide as four of the smallest squares on every side. A simple rule: leave a clear margin at least one tenth of the code's own width.</p>
+<p>Nothing belongs in that space — no text, logo, frame or image edge. Placing a code tight into the corner of a flyer is a frequent reason it fails.</p>
+
+<h2>Resolution and file size</h2>
+<p>A QR code is line art made of sharp edges. For printing:</p>
+<ul>
+<li><strong>300 DPI</strong> is the usual print standard — 300 dots per inch, roughly 118 dots per centimetre.</li>
+<li>A 600 × 600 px code prints cleanly at 300 DPI up to about <strong>5 × 5 cm</strong>. That covers business cards, table cards and flyers.</li>
+<li>For larger formats — posters, shop windows, banners — generate the code at a higher resolution or use a vector file.</li>
+</ul>
+<p>If a print shop asks for vector artwork (SVG, EPS, PDF), it means the code can be scaled to any size without losing sharpness. For large-format printing that is the safest route.</p>
+
+<h2>Minimum size by type of print</h2>
+<p>Size follows scanning distance. The rule of thumb is that a code should be about <strong>one tenth of the scanning distance</strong>:</p>
+<ul>
+<li><strong>Business card</strong> (scanned from 20 cm) — at least 15 × 15 mm, ideally 20 × 20 mm.</li>
+<li><strong>Flyer or menu</strong> (30 cm) — at least 20 × 20 mm.</li>
+<li><strong>A4 poster on a wall</strong> (1 m) — at least 10 × 10 cm.</li>
+<li><strong>Shop window or billboard</strong> (3 m and up) — at least 30 × 30 cm, preferably more.</li>
+</ul>
+<p>When in doubt, go bigger. Nobody has ever been inconvenienced by a code that was too large; a code that is too small simply does not work.</p>
+
+<h2>Material and surface</h2>
+<p>The surface affects readability more than most people expect:</p>
+<ul>
+<li><strong>Matte paper</strong> is the most reliable — light does not reflect off it.</li>
+<li><strong>Glossy paper and lamination</strong> can create glare that hides part of the code. If you cannot avoid them, make the code slightly larger.</li>
+<li><strong>Fabric and uneven surfaces</strong> distort the pattern. A code on a T-shirt or a curved sticker needs to be considerably bigger.</li>
+<li><strong>Dark backgrounds</strong> need a white field underneath — print the code on a white rectangle rather than straight onto colour.</li>
+</ul>
+
+<h2>What not to do</h2>
+<ul>
+<li><strong>Do not enlarge a small image</strong> — scaling up a PNG produces blurred edges. Generate the code again at a higher resolution.</li>
+<li><strong>Do not edit the code in a graphics program</strong> — no rounded corners, no restyled dots, no cropped margins.</li>
+<li><strong>Do not drop a logo in the middle</strong> unless you are sure. Some codes tolerate it thanks to built-in error correction, but it is a risk that needs thorough testing.</li>
+<li><strong>Do not invert the colours</strong> — many scanners will not recognise a light code on a dark background.</li>
+</ul>
+
+<h2>Checklist before sending to print</h2>
+<ul>
+<li>The code has clear white space around it, at least one tenth of its width.</li>
+<li>The size matches the distance it will be scanned from.</li>
+<li>The code is black on white, or at least strongly contrasting.</li>
+<li>The resolution is sufficient for the final size at 300 DPI.</li>
+<li>There is at least 5 mm between the code and the edge of the printed piece.</li>
+<li>The code has been tested from a printed proof, not from a screen.</li>
+</ul>
+<p>You can create the code in the <a href="/">generator</a> — the downloaded PNG is 600 × 600 px. To double-check a printed proof, photograph it and open the picture in the <a href="/qr-reader">QR code reader</a>.</p>
+      </div>
+
+      <div class="ad-slot">
+        <span class="ad-slot-label">Advertisement</span>
+        <div id="container-6715372f44737f29c2c234fb8222a1b4"></div>
+      </div>
+
+      <aside class="guide-more" aria-labelledby="more-tlac">
+        <h2 id="more-tlac">More guides</h2>
+        <ul>
+          <li><a href="/guides/wifi-qr-code-for-cafes">Wi-Fi QR code for a café or guest house</a></li>
+          <li><a href="/guides/qr-code-for-business-cards">QR code for business cards</a></li>
+          <li><a href="/guides/why-qr-codes-stop-working">Why a QR code is not working</a></li>
+          <li><a href="/guides/static-vs-dynamic-qr-codes">Static vs dynamic QR codes</a></li>
+          <li><a href="/guides/ean-upc-code128-which-to-choose">EAN-13, UPC-A or CODE128 — which to choose</a></li>
+          <li><a href="/guides/barcode-check-digit-explained">What a check digit is and how it works</a></li>
+          <li><a href="/guides/how-to-get-an-official-ean-barcode">How to get an official barcode for your product</a></li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/">
+            <img src="/logo.svg" width="36" height="36" alt="" decoding="async">
+            <span class="brand-name">QR Code Generator</span>
+          </a>
+          <p>A simple, free tool for creating QR codes for links, text, Wi-Fi networks and business cards.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h2>Tool</h2>
+            <ul>
+              <li><a href="/">Generator</a></li>
+              <li><a href="/guides">Guides</a></li>
+              <li><a href="/barcodes">Barcodes</a></li>
+              <li><a href="/qr-reader">QR reader</a></li>
+              <li><a href="/#faq-title">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2>Project</h2>
+            <ul>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2>Legal</h2>
+            <ul>
+              <li><a href="/privacy">Privacy</a></li>
+              <li><a href="/cookies">Cookies</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span>© <span id="year">2026</span> QR Code Generator</span>
+        <span>Made in Slovakia</span>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20261024" defer></script>
+  <script src="/banner.js?v=20261024" defer></script>
+  <script src="/analytics.js?v=20261024" defer></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" data-no-ads="1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0b0d12">
+  <title>Page not found — QR Code Generator</title>
+  <meta name="description" content="The page you're looking for doesn't exist or has moved.">
+
+  <!-- 404 stránky sa nemajú indexovať vo vyhľadávaní -->
+  <meta name="robots" content="noindex,follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <!--
+    DÔLEŽITÉ: všetky cesty nižšie (aj vyššie) sú ABSOLÚTNE (začínajú "/"),
+    nie relatívne. Táto stránka sa totiž fyzicky nachádza v koreni webu,
+    ale Apache ju servíruje aj pre nefunkčné adresy hlbšie v štruktúre
+    (napr. qrko.net/guides/neexistuje). Keby cesty boli relatívne
+    (napr. "style.css" namiesto "/style.css"), prehliadač by ich pri
+    zobrazení na adrese /guides/... hľadal na zlom mieste a nič by sa
+    nenačítalo. Pri úprave tejto stránky preto vždy zachovaj "/" na
+    začiatku každej cesty k súboru.
+  -->
+  <link rel="stylesheet" href="/style.css?v=20261024">
+
+  <script src="/banner.js?v=20261024" defer></script>
+  <script src="/analytics.js?v=20261024" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var y = document.getElementById('year');
+      if (y) y.textContent = new Date().getFullYear();
+    });
+  </script>
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <div class="shell masthead-inner">
+      <a class="brand" href="/">
+        <img src="/logo.svg" width="36" height="36" alt="QR Code Generator logo" decoding="async">
+        <span>
+          <span class="brand-name">QR Code Generator</span>
+          <span class="brand-note">Links, Wi-Fi and business cards</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="error-page shell">
+      <p class="error-code" aria-hidden="true">404</p>
+      <h1>This page took a wrong turn.</h1>
+      <p class="hero-lead">The page you're looking for doesn't exist, or the link that brought you here is out of date.</p>
+
+      <div class="error-actions">
+        <a class="btn-generate error-btn" href="/">Back to homepage</a>
+        <a class="error-secondary" href="/contact">Followed a broken link? Let us know</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer error-footer">
+    <div class="shell footer-base">
+      <span>© <span id="year">2026</span> QR Code Generator</span>
+      <span>Made in Slovakia</span>
+    </div>
+  </footer>
+</body>
+</html>

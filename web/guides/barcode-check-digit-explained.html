@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0b0d12">
+  <title>What a Barcode Check Digit Is and How It's Calculated</title>
+  <meta name="description" content="An explanation of the check digit in EAN-13 and UPC-A barcodes — what it's for, how it's calculated, and why you shouldn't make it up.">
+  <link rel="canonical" href="https://qrko.net/guides/barcode-check-digit-explained">
+  <meta name="robots" content="index,follow">
+
+  <meta property="og:title" content="What a Barcode Check Digit Is and How It's Calculated">
+  <meta property="og:description" content="An explanation of the check digit in EAN-13 and UPC-A barcodes — what it's for, how it's calculated, and why you shouldn't make it up.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://qrko.net/guides/barcode-check-digit-explained">
+  <meta property="og:site_name" content="QR Code Generator">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="https://qrko.net/logo.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="What a Barcode Check Digit Is and How It's Calculated">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20261024">
+
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="masthead">
+    <div class="shell masthead-inner">
+      <a class="brand" href="/">
+        <img src="/logo.svg" width="36" height="36" alt="QR Code Generator logo" decoding="async">
+        <span>
+          <span class="brand-name">QR Code Generator</span>
+          <span class="brand-note">Links, Wi-Fi and business cards</span>
+        </span>
+      </a>
+      <div class="masthead-right">
+      <nav aria-label="Generator">
+        <a href="/">Generator</a>
+        <a href="/guides" aria-current="page">Guides</a>
+        <a href="/barcodes">Barcodes</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      </div>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="page shell">
+      <p class="guide-back"><a href="/guides">&larr; Back to guides</a></p>
+      <h1>What a check digit is and how it works</h1>
+      <p class="hero-lead guide-lead">The last digit in EAN-13 or UPC-A isn't random — it's mathematically derived from the ones before it. Here's what it's for and why that's a good thing.</p>
+      <div class="prose">
+<p>If you've ever noticed that the last digit on a product barcode seems to "not fit" the pattern, that's not a typo. It's a <strong>check digit</strong> — a mathematically calculated value used to verify that the rest of the code is correct.</p>
+
+<h2>What it's actually for</h2>
+<p>Imagine a till scanner in a shop misreading one bar of a code — say, because of a damaged sticker or a bad scanning angle. Without a check digit, the till would read an incorrect but still "valid-looking" code, and the wrong price could end up attached to the product.</p>
+<p>With a check digit, the scanner recalculates after reading the code whether the last digit matches what it should be. If it doesn't, the code is rejected and a rescan is requested, instead of letting faulty data through.</p>
+
+<h2>How it's calculated (EAN-13 and UPC-A)</h2>
+<p>The process is the same for both formats, UPC-A simply has one fewer digit (it's technically EAN-13 with a hidden leading zero):</p>
+<ol>
+<li>Take the first 12 digits (for UPC-A, the first 11 plus a leading zero).</li>
+<li>Add up the digits in odd positions (1st, 3rd, 5th...) as they are.</li>
+<li>Multiply the digits in even positions (2nd, 4th, 6th...) by three.</li>
+<li>Add all the values together.</li>
+<li>The check digit is whatever number needs to be added to that sum to make it divisible by ten.</li>
+</ol>
+<p>Example for the first 12 digits <code>590123412345</code>: the sum of the multiplied and unmultiplied values comes out needing <strong>7</strong> more to reach the next multiple of ten — so the complete code is <code>5901234123457</code>.</p>
+
+<h2>Why you can't just make one up</h2>
+<p>If you invented the last digit instead of calculating it, the code would look convincing — it would look like an ordinary EAN-13 — but no scanner would accept it as valid. At best, a till would reject it outright; at worst, you'd only discover the problem once the code came off the printer and wouldn't scan.</p>
+
+<h2>How our generator handles this</h2>
+<p>In the <a href="/barcodes">barcode generator</a> you don't have to calculate the check digit yourself. Enter just the first 12 (EAN-13) or 11 (UPC-A) digits and the generator works out the last one for you. If you enter it yourself anyway and it doesn't match, the generator tells you clearly instead of silently producing a code that won't work.</p>
+
+<h2>What about CODE128?</h2>
+<p>CODE128 has its own, different checking mechanism (called a check symbol rather than a check digit), which is calculated and added automatically when the code is generated — so there's nothing to worry about for this format, it takes care of itself.</p>
+      </div>
+
+      <div class="ad-slot">
+        <span class="ad-slot-label">Advertisement</span>
+        <div id="container-6715372f44737f29c2c234fb8222a1b4"></div>
+      </div>
+
+      <aside class="guide-more" aria-labelledby="more-kontrolna-cislica">
+        <h2 id="more-kontrolna-cislica">More guides</h2>
+        <ul>
+          <li><a href="/guides/wifi-qr-code-for-cafes">Wi-Fi QR code for a café or guest house</a></li>
+          <li><a href="/guides/qr-code-for-business-cards">QR code for business cards</a></li>
+          <li><a href="/guides/qr-codes-for-print">Preparing QR codes for print</a></li>
+          <li><a href="/guides/why-qr-codes-stop-working">Why a QR code is not working</a></li>
+          <li><a href="/guides/static-vs-dynamic-qr-codes">Static vs dynamic QR codes</a></li>
+          <li><a href="/guides/ean-upc-code128-which-to-choose">EAN-13, UPC-A or CODE128 — which to choose</a></li>
+          <li><a href="/guides/how-to-get-an-official-ean-barcode">How to get an official barcode for your product</a></li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/">
+            <img src="/logo.svg" width="36" height="36" alt="" decoding="async">
+            <span class="brand-name">QR Code Generator</span>
+          </a>
+          <p>A simple, free tool for creating QR codes for links, text, Wi-Fi networks and business cards.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h2>Tool</h2>
+            <ul>
+              <li><a href="/">Generator</a></li>
+              <li><a href="/guides">Guides</a></li>
+              <li><a href="/barcodes">Barcodes</a></li>
+              <li><a href="/qr-reader">QR reader</a></li>
+              <li><a href="/#faq-title">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2>Project</h2>
+            <ul>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h2>Legal</h2>
+            <ul>
+              <li><a href="/privacy">Privacy</a></li>
+              <li><a href="/cookies">Cookies</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-base">
+        <span>© <span id="year">2026</span> QR Code Generator</span>
+        <span>Made in Slovakia</span>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20261024" defer></script>
+  <script src="/banner.js?v=20261024" defer></script>
+  <script src="/analytics.js?v=20261024" defer></script>
+</body>
+</html>

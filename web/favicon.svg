@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="130" height="130" viewBox="0 0 130 130" role="img" aria-label="QR Generátor Odkazov logo">
+  <defs>
+    <linearGradient id="qrBrand" x1="6%" y1="0%" x2="94%" y2="100%">
+      <stop offset="0%" stop-color="#4338ca"/>
+      <stop offset="52%" stop-color="#5b3fd6"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="130" height="130" rx="30" fill="url(#qrBrand)"/>
+  <rect x="14" y="14" width="34" height="34" rx="7" fill="none" stroke="#ffffff" stroke-width="4"/>
+  <rect x="25" y="25" width="12" height="12" rx="3" fill="#ffffff"/>
+  <rect x="82" y="14" width="34" height="34" rx="7" fill="none" stroke="#ffffff" stroke-width="4"/>
+  <rect x="93" y="25" width="12" height="12" rx="3" fill="#ffffff"/>
+  <rect x="14" y="82" width="34" height="34" rx="7" fill="none" stroke="#ffffff" stroke-width="4"/>
+  <rect x="25" y="93" width="12" height="12" rx="3" fill="#ffffff"/>
+  <rect x="87" y="87" width="8" height="8" rx="2" fill="#ffffff"/>
+  <rect x="101" y="87" width="8" height="8" rx="2" fill="#ffffff" opacity="0.6"/>
+  <rect x="87" y="101" width="8" height="8" rx="2" fill="#ffffff" opacity="0.6"/>
+</svg>
