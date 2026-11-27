@@ -53,10 +53,12 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ${{ vars.FTP_PROTOCOL || 'ftps' }}
-          local-dir: ./web/
+          local-dir: ./
           server-dir: ${{ vars.FTP_SERVER_DIR || './public/' }}
           log-level: verbose
           exclude: |
             **/.git*
             **/.git*/**
+            .github/**
+            README.md
             odoslat-chyby.log

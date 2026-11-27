@@ -1,11 +1,12 @@
 # qrko.net — kompletný balík (v2.1, len angličtina, priamo v koreni)
 
 ## Repo a nasadenie
-Obsah webu je v priečinku `web/`. Po každom pushi do `main`, ktorý mení
-`web/`, ho GitHub Actions (`.github/workflows/deploy.yml`) nahrá cez FTP
-na Websupport. Nahrávajú sa len zmenené súbory a nič sa na serveri nemaže.
-Nastavenie (FTP secrets) je popísané v hlavičke workflowu.
-Súbor `.htaccess` patrí tiež do `web/`.
+Web beží na HostCreators. Súbory webu sú priamo v koreni repa (od 27. 11. 2026,
+predtým v `web/`). Nasadzuje ich Git aplikácia HostCreators z vetvy `main`
+do `/qrko.net/web/current/`, koreň repa = koreň webu. `.htaccess` blokuje
+z webu priečinky `.git`, `.github` a súbory `.md`.
+GitHub Actions FTP workflow (`.github/workflows/deploy.yml`) je len záložný
+a spúšťa sa ručne.
 
 Web je od októbra 2026 len v angličtine a beží priamo na koreni:
 qrko.net, qrko.net/guides, qrko.net/privacy ... (bez /en).
@@ -90,7 +91,7 @@ starej štruktúry (en/..., navody/...) a generujú aj slovenské návody.
 Nespúšťaj ich v pôvodnej podobe, vytvorili by znova zmazané súbory.
 
 ## Po nahratí (ručné nasadenie bez GitHub Actions)
-1. Nahraj celý obsah priečinka web/ do koreňa webu. .htaccess je skrytý
+1. Nahraj súbory webu (koreň repa okrem .git, .github a README.md) do koreňa webu. .htaccess je skrytý
    súbor - vo FTP klientovi zapni zobrazovanie skrytých súborov.
 2. Na serveri nesmú ostať staré súbory: priečinky en/ a navody/, slovenské
    stránky (kontakt.html, o-nas.html, ochrana-sukromia.html, navody.html,
