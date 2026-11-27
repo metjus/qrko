@@ -1,5 +1,5 @@
 # Nasadenie webu na HostCreators cez FTP (od 27. 11. 2026, predtým Websupport).
-# Spúšťa sa pri každom pushi do main, ktorý mení priečinok web/, alebo ručne
+# Spúšťa sa iba ručne
 # (Actions -> Deploy na HostCreators -> Run workflow).
 #
 # Potrebné nastavenia v repe (Settings -> Secrets and variables -> Actions):
@@ -16,10 +16,10 @@
 
 name: Deploy na HostCreators
 
+# Od 27. 11. 2026 nasadzuje web Git aplikácia HostCreators priamo z vetvy main
+# (relatívna public cesta: web). Tento FTP workflow je preto len záložný
+# a spúšťa sa iba ručne.
 on:
-  push:
-    branches: [main]
-    paths: ['web/**']
   workflow_dispatch:
 
 concurrency:
