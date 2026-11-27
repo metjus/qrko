@@ -1,11 +1,11 @@
-# Nasadenie webu na Websupport cez FTP.
+# Nasadenie webu na HostCreators cez FTP (od 27. 11. 2026, predtým Websupport).
 # Spúšťa sa pri každom pushi do main, ktorý mení priečinok web/, alebo ručne
-# (Actions -> Deploy na Websupport -> Run workflow).
+# (Actions -> Deploy na HostCreators -> Run workflow).
 #
 # Potrebné nastavenia v repe (Settings -> Secrets and variables -> Actions):
 #   Secrets:   FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
-#   Variables: FTP_SERVER_DIR (voliteľné, predvolene ./qrko.net/web/ - koreň webu
-#              na Websupporte, FTP účet začína o úroveň vyššie;
+#   Variables: FTP_SERVER_DIR (voliteľné, predvolene ./public/ - koreň webu
+#              na HostCreators relatívne ku koreňu FTP účtu;
 #              adresa musí končiť lomkou)
 #              FTP_PROTOCOL (voliteľné, predvolene ftps; ak server šifrované
 #              spojenie nepodporuje, nastav ftp)
@@ -14,7 +14,7 @@
 # Nahrávajú sa iba zmenené súbory. Súbory, ktoré na serveri sú, ale v repe
 # nie (log formulára, overovacie súbory Search Console...), sa nemažú.
 
-name: Deploy na Websupport
+name: Deploy na HostCreators
 
 on:
   push:
@@ -54,7 +54,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ${{ vars.FTP_PROTOCOL || 'ftps' }}
           local-dir: ./web/
-          server-dir: ${{ vars.FTP_SERVER_DIR || './qrko.net/web/' }}
+          server-dir: ${{ vars.FTP_SERVER_DIR || './public/' }}
           log-level: verbose
           exclude: |
             **/.git*
