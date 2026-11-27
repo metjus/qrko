@@ -111,7 +111,7 @@ Nespúšťaj ich v pôvodnej podobe, vytvorili by znova zmazané súbory.
 
 ## Na čo pamätať
 - Verzia webu je v pätičke každej stránky (`<span class="site-version">`,
-  napr. v2.2 · 2026-11-27). Pri každej zmene webu ju zvýš vo všetkých HTML,
+  napr. v2.2). Pri každej zmene webu ju zvýš vo všetkých HTML,
   nech sa dá overiť, ktorá verzia je nasadená.
 - .htaccess: DirectorySlash Off je nutné (existuje guides.html aj
   priečinok guides/, bez toho vznikne slučka presmerovaní).
