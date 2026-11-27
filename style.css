@@ -517,18 +517,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .guide-grid{grid-template-columns:1fr}
 }
 
-/* ---------- Reklamný priestor (Adsterra Native Banner) ---------- */
-.ad-slot{
-  margin:40px auto;max-width:var(--measure);
-  border:1px solid var(--rule);border-radius:14px;background:var(--surface);
-  padding:16px;
-}
-.ad-slot-label{
-  display:block;font-size:10.5px;font-weight:600;letter-spacing:.06em;
-  text-transform:uppercase;color:var(--ink-faint);margin:0 0 10px;text-align:center;
-}
-.ad-slot > div{min-height:1px}
-
 /* ---------- Čiarový kód (širší obdĺžnik, nie štvorec ako QR) ---------- */
 .barcode-box{
   width:100%;max-width:340px;min-height:190px;
