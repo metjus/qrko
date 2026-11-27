@@ -92,6 +92,9 @@ ErrorDocument 410 /404.html
 </IfModule>
 
 # ── Ochrana interných súborov ──────────────────────────────────────────
+# Web sa nasadzuje Git aplikáciou HostCreators, ktorá zverejní celé repo
+# (vrátane priečinkov .git a .github). Tie nesmú byť dostupné z webu.
+RedirectMatch 404 ^/\.(git|github)(/|$)
 # Log formulára (odoslat-chyby.log) a dokumentácia (README.md a iné .md)
 # nesmú byť čitateľné z webu. README obsahuje interné poznámky vrátane
 # adresy diagnostiky formulára.
