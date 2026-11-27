@@ -1,6 +1,6 @@
 /*
   Jednoduchá správa súhlasu s cookies.
-  - Reklamné skripty (Adsterra) sa načítajú AŽ PO súhlase používateľa.
+  - Reklamné skripty (Google AdSense, keď sa zapne) sa načítajú AŽ PO súhlase používateľa.
   - Súhlas sa ukladá lokálne v prehliadači (localStorage), nie na serveri.
   - Na stránke Kontakt (SK aj EN) sa reklamy zámerne nenačítavajú vôbec —
     pozri KONTAKT_CESTY nižšie. Lišta so súhlasom tam funguje normálne,
@@ -31,41 +31,14 @@
     // na "Prijať", alebo automaticky pri opätovnej návšteve, ak už súhlas existuje.
     if (jeStrankaBezReklam()) return; // Kontakt zámerne bez reklám
 
-    // --- ADSTERRA: Native Banner --- AKTÍVNE. (Bolo krátko vypnuté 26.9.
-    // spolu so Social Bar pri podozrení na automatické presmerovanie;
-    // po izolovaní problému na Social Bar bol Native Banner vrátený
-    // späť do prevádzky, Social Bar zostáva vypnutý nižšie.)
-    // Vykreslí sa do <div id="container-...">, ktorý musí byť už v HTML danej
-    // stránky. Ak taký div na stránke nie je, skript sa nenačíta vôbec —
-    // netreba teda ručne kontrolovať, na ktorých stránkach kontajner je.
-    if (document.getElementById('container-6715372f44737f29c2c234fb8222a1b4')
-        && !document.getElementById('adsterra-native')) {
-      var nb = document.createElement('script');
-      nb.id = 'adsterra-native';
-      nb.async = true;
-      nb.setAttribute('data-cfasync', 'false');
-      nb.src = 'https://pl31480710.profitableratecpmnetwork.com/6715372f44737f29c2c234fb8222a1b4/invoke.js';
-      document.body.appendChild(nb);
-    }
-
-    // --- ADSTERRA: Social Bar --- VYPNUTÉ (pozastavené kvôli hláseniu o
-    // automatickom presmerovaní na mobile - vynútené presmerovanie bez
-    // kliknutia je závažné porušenie vlastných pravidiel Adsterra aj
-    // dôvod na blacklist v Google Safe Browsing. Nezapínať naspäť, kým
-    // sa príčina nepotvrdí a nevyrieši s podporou Adsterra.
-    // Nepotrebuje kontajner, funguje ako plávajúci prvok na celej stránke.
-    // if (!document.getElementById('adsterra-socialbar')) {
-    //   var sb = document.createElement('script');
-    //   sb.id = 'adsterra-socialbar';
-    //   sb.src = 'https://pl31480712.profitableratecpmnetwork.com/ef/53/2b/ef532b3e4650914b00db7ce0cb56e2ad.js';
-    //   document.body.appendChild(sb);
-    // }
-    //
-    // --- GOOGLE ADSENSE (odkomentujte a doplňte svoje ca-pub-XXXX ID po schválení) ---
+    // --- GOOGLE ADSENSE, automatické reklamy (Adsterra bola 27. 11. 2026 úplne
+    // odstránená). Odkomentovať PO schválení webu v AdSense, spolu s úpravou
+    // stránok Privacy a Cookies. Reklamy si Google umiestni sám (Auto ads),
+    // žiadne pevné reklamné polia v HTML netreba. ---
     // if (!document.getElementById('adsense-script')) {
     //   const ads = document.createElement('script');
     //   ads.id = 'adsense-script';
-    //   ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX';
+    //   ads.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3790654186148741';
     //   ads.async = true;
     //   ads.crossOrigin = 'anonymous';
     //   document.head.appendChild(ads);

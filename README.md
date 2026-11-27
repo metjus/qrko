@@ -1,4 +1,4 @@
-# qrko.net — kompletný balík (v2.1, len angličtina, priamo v koreni)
+# qrko.net — kompletný balík (v2.2, len angličtina, priamo v koreni)
 
 ## Repo a nasadenie
 Web beží na HostCreators. Súbory webu sú priamo v koreni repa (od 27. 11. 2026,
@@ -110,12 +110,16 @@ Nespúšťaj ich v pôvodnej podobe, vytvorili by znova zmazané súbory.
    mieria na /en/... (presmerujú sa, ale priama adresa je lepšia).
 
 ## Na čo pamätať
+- Verzia webu je v pätičke každej stránky (`<span class="site-version">`,
+  napr. v2.2 · 2026-11-27). Pri každej zmene webu ju zvýš vo všetkých HTML,
+  nech sa dá overiť, ktorá verzia je nasadená.
 - .htaccess: DirectorySlash Off je nutné (existuje guides.html aj
   priečinok guides/, bez toho vznikne slučka presmerovaní).
-- Content-Security-Policy je zatiaľ len Report-Only. Kým je aktívna
-  Adsterra, neprepínaj ju na ostrú (viď komentár v .htaccess).
-- Reklamy Adsterra (Native Banner) sa načítajú až po súhlase s cookies.
-  Bez reklám sú zámerne /contact a /404 (značka data-no-ads).
+- Content-Security-Policy je zatiaľ len Report-Only (viď komentár v .htaccess).
+- Adsterra je od 27. 11. 2026 úplne odstránená. Plán: Google AdSense
+  automatické reklamy (kód je pripravený v banner.js, zakomentovaný) až po
+  schválení webu, spolu s úpravou Privacy a Cookies. Reklamy sa načítajú až po
+  súhlase s cookies. Bez reklám sú zámerne /contact a /404 (značka data-no-ads).
 - Kontaktný formulár posiela na /odoslat.php polia meno, email, sprava,
   suhlas, suhlas_udeleny, jazyk (vždy "en", server ho ignoruje) a
   _gotcha. Názvy polí nemeň, číta ich server. Chyby sa zapisujú do
